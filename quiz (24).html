@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Er Du Rigtig Klog - Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .quiz-container { max-width: 600px; margin: auto; }
+        .question { margin-bottom: 20px; }
+        .answers { list-style-type: none; padding: 0; }
+        .answers li { margin-bottom: 10px; }
+        .result { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Er Du Rigtig Klog - på fødselaren?</h1>
+        <p>En fødselsdagsquiz i anledning af Mariann’s 80-årsdag</p>
+        <p>Af: Fødselsdagsredaktionen (Tina & Eva)</p>
+<div class="question"><p>1. Hvilket navn er skrevet på hendes dåbsbevis?</p><ul class="answers"><li><input type="radio" name="q1" value="A"> Solvig Mariann Strid</li><li><input type="radio" name="q1" value="B"> Solvig Mariann Stridh</li><li><input type="radio" name="q1" value="C"> Mariann Solvig Strid</li><li><input type="radio" name="q1" value="D"> Mariann Solvig Stridh</li></ul></div><div class="question"><p>2. Hvilken gade paa Nørrebro er Mariann opvokset?</p><ul class="answers"><li><input type="radio" name="q2" value="A"> Bragesgade</li><li><input type="radio" name="q2" value="B"> Ægirgade</li><li><input type="radio" name="q2" value="C"> Baldersgade</li><li><input type="radio" name="q2" value="D"> Tagensvej</li></ul></div><div class="question"><p>3. Hvad var hendes barndom præget af?</p><ul class="answers"><li><input type="radio" name="q3" value="A"> Ni søskende og et gårdmandsliv</li><li><input type="radio" name="q3" value="B"> Højskolesang & fællesspisning</li><li><input type="radio" name="q3" value="C"> Tæt forhold til sine forældre som enebarn</li><li><input type="radio" name="q3" value="D"> En barndom i eksil fra Sverige</li></ul></div><div class="question"><p>4. Hvad hed hendes barndoms veninde gennem livet som boede i en anden opgang på samme vej?</p><ul class="answers"><li><input type="radio" name="q4" value="A"> Ingelise</li><li><input type="radio" name="q4" value="B"> Anni</li><li><input type="radio" name="q4" value="C"> Gunnild</li><li><input type="radio" name="q4" value="D"> Fru Sørensen</li></ul></div><div class="question"><p>5. Hvad er hendes uddannelsesmæssige baggrund?</p><ul class="answers"><li><input type="radio" name="q5" value="A"> Circusklovn</li><li><input type="radio" name="q5" value="B"> Biokemiker</li><li><input type="radio" name="q5" value="C"> Farmaceut</li><li><input type="radio" name="q5" value="D"> Skuespillerinde</li></ul></div><div class="question"><p>6. Hvem var Marianns studie kammerater som de holdt sammen med hele livet?</p><ul class="answers"><li><input type="radio" name="q6" value="A"> Kaj & Jette</li><li><input type="radio" name="q6" value="B"> Kirsten & Birger</li><li><input type="radio" name="q6" value="C"> Ingelise & Per</li><li><input type="radio" name="q6" value="D"> Kaj & Andrea</li></ul></div><div class="question"><p>7. Hvad var Marianns yndlingsfag i skolen?</p><ul class="answers"><li><input type="radio" name="q7" value="A"> Matematik</li><li><input type="radio" name="q7" value="B"> Kemi</li><li><input type="radio" name="q7" value="C"> Fysik</li><li><input type="radio" name="q7" value="D"> Dansk</li></ul></div><div class="question"><p>8. Hvor blev Mariann & Ole Gift?</p><ul class="answers"><li><input type="radio" name="q8" value="A"> Kastelskirken</li><li><input type="radio" name="q8" value="B"> Hvor Frue Kirke</li><li><input type="radio" name="q8" value="C"> Den Svenske Kirke</li><li><input type="radio" name="q8" value="D"> Københavns Rådhus</li></ul></div><div class="question"><p>9. Hvor mange kontinenter har Mariann besøgt?</p><ul class="answers"><li><input type="radio" name="q9" value="A"> 4</li><li><input type="radio" name="q9" value="B"> 5</li><li><input type="radio" name="q9" value="C"> 6</li><li><input type="radio" name="q9" value="D"> 7</li></ul></div><div class="question"><p>10. Hvilken drink er Mariann’s ynglings ”shot”?</p><ul class="answers"><li><input type="radio" name="q10" value="A"> Små grå</li><li><input type="radio" name="q10" value="B"> Tequila</li><li><input type="radio" name="q10" value="C"> Sambucca</li><li><input type="radio" name="q10" value="D"> Amaretto</li></ul></div>
+        <button onclick="calculateScore()">Submit</button>
+        <p class="result" id="result"></p>
+    </div>
+    <script>
+        function calculateScore() {
+            const correctAnswers = ['B', 'D', 'C', 'B', 'C', 'A', 'B', 'C', 'C', 'C'];
+            let score = 0;
+            for (let i = 0; i < correctAnswers.length; i++) {
+                const selectedAnswer = document.querySelector(`input[name="q${i+1}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            let resultMessage = '';
+            if (score <= 3) {
+                resultMessage = '0–3: Prøv igen';
+            } else if (score <= 6) {
+                resultMessage = '4–6: Godt klaret';
+            } else if (score <= 9) {
+                resultMessage = '7–9: Meget klog';
+            } else {
+                resultMessage = '10: Genial!';
+            }
+            document.getElementById('result').innerText = `Du fik ${score} point. ${resultMessage}`;
+        }
+    </script>
+</body>
+</html>
